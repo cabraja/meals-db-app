@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Search } from "../components/search.component";
-import styled from "styled-components";
 // COMPONENTS
 import { CategoryContainer } from "../components/category-container.component";
 
