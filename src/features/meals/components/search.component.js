@@ -7,7 +7,7 @@ const SearchContainer = styled.View`
   justify-content: center;
   padding: 20px;
   margin-top: ${Platform.OS === "android" ? StatusBar.currentHeight : 0}px;
-  background-color: tomato;
+  background-color: #ee9211;
 `;
 
 export const Search = () => {

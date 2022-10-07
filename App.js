@@ -21,7 +21,7 @@ const screenOptions = ({ route }) => ({
     }
     return <Ionicons name={iconName} size={size} color={color} />;
   },
-  tabBarActiveTintColor: "tomato",
+  tabBarActiveTintColor: "#ee9211",
   tabBarInactiveTintColor: "gray",
   headerShown: false,
 });
