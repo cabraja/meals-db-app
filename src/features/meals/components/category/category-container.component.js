@@ -31,7 +31,8 @@ export const CategoryContainer = ({ setSelectedCategory }) => {
       .then((data) => {
         setCategories(transofrmCategories(data));
         setLoading(false);
-      });
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   return (

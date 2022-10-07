@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, FlatList, StyleSheet } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import styled from "styled-components";
 import {
   Portal,
@@ -9,6 +10,7 @@ import {
 } from "react-native-paper";
 // COMPONENTS
 import { MealCard } from "./meal-card.component";
+import { Spacer } from "../../../../components/Spacer";
 // SERVICES
 import { URL } from "../../../../services/urls";
 import {
@@ -17,12 +19,17 @@ import {
 } from "../../../../services/meals/meals.service";
 import { MealModal } from "./meal-modal.component";
 
+const Header = styled.View`
+  align-items: center;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
 const Title = styled.Text`
   font-size: 26px;
   text-align: center;
   font-weight: 800;
-  margin-bottom: 20px;
-  margin-top: 8px;
 `;
 
 const MealsWrapper = styled.View`
@@ -65,13 +72,28 @@ export const MealContainer = ({ selectedCategory, setSelectedCategory }) => {
   return (
     <Provider>
       <Portal>
-        <MealModal hideModal={hideModal} visible={visible} />
+        {singleMeal && (
+          <MealModal
+            hideModal={hideModal}
+            visible={visible}
+            singleMeal={singleMeal}
+          />
+        )}
       </Portal>
       <MealsWrapper>
-        <Button mode={"outlined"} onPress={() => setSelectedCategory(null)}>
-          Back to categories
-        </Button>
-        <Title>{selectedCategory.name}</Title>
+        <Header>
+          <Title>{selectedCategory.name}</Title>
+          <Button
+            mode={"contained"}
+            color={"tomato"}
+            onPress={() => setSelectedCategory(null)}
+          >
+            <Ionicons name={"ios-arrow-back"} size={24} color={"white"} />
+          </Button>
+        </Header>
+        <Spacer variant={"medium"} />
+
+        {/* LIST */}
         {!isLoading ? (
           <FlatList
             data={meals}

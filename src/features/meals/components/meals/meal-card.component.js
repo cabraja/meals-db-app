@@ -21,6 +21,9 @@ export const MealCard = ({ item = {}, fetchSingleMeal, showModal }) => {
             fetchSingleMeal(id);
             showModal();
           }}
+          color={"tomato"}
+          mode={"outlined"}
+          style={{ flex: 1 }}
         >
           Recipe
         </Button>

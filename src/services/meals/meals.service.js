@@ -35,8 +35,9 @@ export const TransformSingleMeal = (data) => {
 
   let current = 0;
   for (const [key, value] of Object.entries(data.meals[0])) {
-    if (key.includes("strMeasure") && value) {
+    if (key.includes("strMeasure") && value && value !== " ") {
       ingridients[current].measure = value;
+      ingridients[current].id = current;
       current++;
     }
   }
